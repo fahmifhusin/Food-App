@@ -19,19 +19,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        if (getSupportActionBar() != null) {
-            getSupportActionBar()?.setTitle(getResources().getString(R.string.food_home))
+        if (supportActionBar != null) {
+            supportActionBar?.title = resources.getString(R.string.food_home)
         }
         rvFood = findViewById(R.id.rv_food)
         layoutManager = GridLayoutManager(this, 2)
-        rvFood.setLayoutManager(layoutManager)
-            val moviesViewModel = ViewModelProviders.of(this,
-                this.let { MainViewModelFactory(it) }).get(MainViewModel::class.java)
+        rvFood.layoutManager = layoutManager
+            val moviesViewModel = ViewModelProviders.of(this, this.let { MainViewModelFactory(it) }).get(MainViewModel::class.java)
             moviesViewModel.getFoodViewData().observe(this, object : Observer<ArrayList<FoodPojo>> {
                 override fun onChanged(t: ArrayList<FoodPojo>) {
                     dataResult = mutableListOf()
                     adapterFood = MainAdapter(dataResult, this@MainActivity)
-                    rvFood.setAdapter(adapterFood)
+                    rvFood.adapter = adapterFood
                     dataResult.clear()
                     t.let { dataResult.addAll(it) }
                     adapterFood.notifyDataSetChanged()
