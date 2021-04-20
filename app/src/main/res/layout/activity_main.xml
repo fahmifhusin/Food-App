@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/yellow"
+    android:background="@android:color/holo_red_light"
     tools:context=".ui.main.MainActivity">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_food"

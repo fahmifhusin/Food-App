@@ -39,10 +39,14 @@ class DetailActivity : AppCompatActivity() {
         when (item.itemId) {
             android.R.id.home -> {
                 onBackPressed()
-                Toast.makeText(this,R.string.msg_to_main, Toast.LENGTH_SHORT).show()
                 return true
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        Toast.makeText(this,R.string.msg_to_main, Toast.LENGTH_SHORT).show()
     }
 }
