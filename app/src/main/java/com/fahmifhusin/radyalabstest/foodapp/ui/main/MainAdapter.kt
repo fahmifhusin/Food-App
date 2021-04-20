@@ -11,12 +11,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.module.AppGlideModule
 import com.fahmifhusin.radyalabstest.foodapp.R
 import com.fahmifhusin.radyalabstest.foodapp.data.pojo.FoodPojo
 import com.fahmifhusin.radyalabstest.foodapp.ui.detail.DetailActivity
-import com.squareup.picasso.Callback
-import com.squareup.picasso.Picasso
-
 
 class MainAdapter(private var listFood: MutableList<FoodPojo>, private val con: Context) : RecyclerView.Adapter<MainAdapter.MainHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -29,14 +28,16 @@ class MainAdapter(private var listFood: MutableList<FoodPojo>, private val con: 
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
         val dataFood:FoodPojo = listFood.get(position)
-        Picasso.with(con).setLoggingEnabled(true)
-        Picasso.with(con)
+//        Picasso.with(con).setLoggingEnabled(true)
+        val unsafeLoadImg = UnsafeHttpGlideModule()
+        unsafeLoadImg.unsafeOkHttpClient()
+        Glide.with(con)
             .load(dataFood.getImage())
-            .resize(200,200)
+            .override(200,200)
             .placeholder(con.getDrawable(R.drawable.ic_img))
             .error(R.drawable.ic_img_fail)
             .into(holder.gambarMakanan)
-        Log.d("dataimg", dataFood.getImage().toString())
+        Log.d("dataimg", dataFood.getImage().toString().replace("https", "http"))
         holder.namaMakanan.text = dataFood.getName()
         holder.itemView.setOnClickListener({
             val foodDataDetail = FoodPojo(
