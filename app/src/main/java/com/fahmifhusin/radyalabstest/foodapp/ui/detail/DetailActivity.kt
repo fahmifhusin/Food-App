@@ -30,7 +30,6 @@ class DetailActivity : AppCompatActivity() {
         val foodDetail: FoodPojo = bundle!!.getSerializable("DETAIL") as FoodPojo
             Glide.with(this)
                 .load(foodDetail.getImage())
-                .override(200,200)
                 .placeholder(this.getDrawable(R.drawable.ic_img))
                 .error(R.drawable.ic_img_fail)
                 .into(imgDetail)
