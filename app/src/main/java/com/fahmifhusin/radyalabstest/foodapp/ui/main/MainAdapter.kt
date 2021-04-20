@@ -29,8 +29,6 @@ class MainAdapter(private var listFood: MutableList<FoodPojo>, private val con: 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
         val dataFood:FoodPojo = listFood.get(position)
 //        Picasso.with(con).setLoggingEnabled(true)
-        val unsafeLoadImg = UnsafeHttpGlideModule()
-        unsafeLoadImg.unsafeOkHttpClient()
         Glide.with(con)
             .load(dataFood.getImage())
             .override(200,200)
