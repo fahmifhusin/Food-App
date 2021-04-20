@@ -19,7 +19,7 @@ object RepositoryFood {
             override fun onResponse(call: Call<MutableList<FoodPojo>>, response: Response<MutableList<FoodPojo>>
             ) {
                 val dataResponse = response.body()
-                dataResponse?.let { mutableLiveData.value = it as ArrayList<FoodPojo> }
+                mutableLiveData.value = dataResponse as ArrayList<FoodPojo>
             }
         })
         return mutableLiveData

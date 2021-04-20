@@ -3,6 +3,7 @@ package com.fahmifhusin.radyalabstest.foodapp.ui.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +11,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.fahmifhusin.radyalabstest.foodapp.R
 import com.fahmifhusin.radyalabstest.foodapp.data.pojo.FoodPojo
 import com.fahmifhusin.radyalabstest.foodapp.ui.detail.DetailActivity
+import com.squareup.picasso.Callback
+import com.squareup.picasso.Picasso
 
 
 class MainAdapter(private var listFood: MutableList<FoodPojo>, private val con: Context) : RecyclerView.Adapter<MainAdapter.MainHolder>() {
@@ -27,10 +29,14 @@ class MainAdapter(private var listFood: MutableList<FoodPojo>, private val con: 
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
         val dataFood:FoodPojo = listFood.get(position)
-        Glide.with(holder.itemView.context)
+        Picasso.with(con).setLoggingEnabled(true)
+        Picasso.with(con)
             .load(dataFood.getImage())
+            .resize(200,200)
+            .error(R.drawable.ic_img_fail)
             .into(holder.gambarMakanan)
-        holder.namaMakanan.setText(dataFood.getName())
+        Log.d("dataimg", dataFood.getImage().toString())
+        holder.namaMakanan.text = dataFood.getName()
         holder.itemView.setOnClickListener({
             val foodDataDetail = FoodPojo(
                 dataFood.getImage(),
@@ -43,6 +49,7 @@ class MainAdapter(private var listFood: MutableList<FoodPojo>, private val con: 
             intentDetail.putExtras(bundle)
             con.startActivity(intentDetail)
             Toast.makeText(holder.itemView.context,"Bahan membuat "+dataFood.getName(),Toast.LENGTH_SHORT).show()
+            Log.d("dataMakanan", foodDataDetail.toString())
         })
     }
 

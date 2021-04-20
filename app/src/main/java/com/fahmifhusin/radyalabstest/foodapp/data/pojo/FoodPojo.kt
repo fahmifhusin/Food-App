@@ -12,7 +12,7 @@ data class FoodPojo(
     private var desc:String?= null
 ):Serializable
 {
-   fun getImage()=image
-    fun getName() =name
-    fun getDesc() =desc
+    fun getImage() = image
+    fun getName()  = name
+    fun getDesc()  = desc
 }

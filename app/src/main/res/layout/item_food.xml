@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="250dp"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="@dimen/pembatas_smaller"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/pembatas_smaller"
@@ -22,7 +22,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:scaleType="fitXY"
-                android:background="@android:color/darker_gray"/>
+                android:background="@android:color/white"
+                tools:src="@drawable/icon_app"/>
             <TextView
                 android:id="@+id/tv_nama_makanan"
                 android:layout_width="match_parent"

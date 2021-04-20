@@ -9,15 +9,4 @@
     <style name="SplashIntro" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:background">@drawable/icon_app_center</item>
     </style>
-    <style name="header_menu">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">32sp</item>
-        <item name="android:background">@android:color/white</item>
-        <item name="android:textColor">@android:color/primary_text_light</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textAlignment">center</item>
-        <item name="android:padding">@dimen/pembatas_default</item>
-    </style>
-
 </resources>

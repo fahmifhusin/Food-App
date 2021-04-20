@@ -7,9 +7,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
 import com.fahmifhusin.radyalabstest.foodapp.R
 import com.fahmifhusin.radyalabstest.foodapp.data.pojo.FoodPojo
+import com.squareup.picasso.Picasso
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var imgDetail:ImageView
@@ -28,8 +28,10 @@ class DetailActivity : AppCompatActivity() {
         descDetail = findViewById(R.id.tv_detail_desc)
         val bundle = intent.extras
         val foodDetail: FoodPojo = bundle!!.getSerializable("DETAIL") as FoodPojo
-            Glide.with(this)
+            Picasso.with(this)
                 .load(foodDetail.getImage())
+                .resize(200,200)
+                .error(R.drawable.ic_img_fail)
                 .into(imgDetail)
             namaDetail.text = foodDetail.getName()
             descDetail.text = foodDetail.getDesc()
