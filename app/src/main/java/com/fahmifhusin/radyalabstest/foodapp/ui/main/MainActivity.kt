@@ -1,14 +1,15 @@
 package com.fahmifhusin.radyalabstest.foodapp.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fahmifhusin.radyalabstest.foodapp.R
 import com.fahmifhusin.radyalabstest.foodapp.data.pojo.FoodPojo
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var rvFood: RecyclerView
