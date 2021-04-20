@@ -22,8 +22,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:scaleType="fitXY"
-                android:background="@android:color/white"
-                tools:src="@drawable/icon_app"/>
+                android:background="@android:color/darker_gray"
+                tools:src="@drawable/ic_img"/>
             <TextView
                 android:id="@+id/tv_nama_makanan"
                 android:layout_width="match_parent"

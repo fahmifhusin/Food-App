@@ -33,6 +33,7 @@ class MainAdapter(private var listFood: MutableList<FoodPojo>, private val con: 
         Picasso.with(con)
             .load(dataFood.getImage())
             .resize(200,200)
+            .placeholder(con.getDrawable(R.drawable.ic_img))
             .error(R.drawable.ic_img_fail)
             .into(holder.gambarMakanan)
         Log.d("dataimg", dataFood.getImage().toString())

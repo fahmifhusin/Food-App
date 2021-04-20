@@ -31,6 +31,7 @@ class DetailActivity : AppCompatActivity() {
             Picasso.with(this)
                 .load(foodDetail.getImage())
                 .resize(200,200)
+                .placeholder(this.getDrawable(R.drawable.ic_img))
                 .error(R.drawable.ic_img_fail)
                 .into(imgDetail)
             namaDetail.text = foodDetail.getName()
